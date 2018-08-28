@@ -1,1 +1,1 @@
-WSGI_Web_Server
+符合WSGI规范的Web Server
