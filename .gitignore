@@ -1,0 +1,12 @@
+*.iml
+*/*.iml
+*.class
+*.apk
+bin/
+gen/
+.settings/
+*.xml
+.idea/
+.vcs/
+idea/
+vcs/
