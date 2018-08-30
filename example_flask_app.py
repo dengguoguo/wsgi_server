@@ -5,11 +5,11 @@
 # @File : example_flask_app.py
 # @Software: PyCharm
 from flask import Flask
-from flask import render_template
+from flask import Response
 flask_app = Flask('flaskapp')
 
 @flask_app.route('/hello/')
 def hello_world():
-    return render_template('index.html')
+    return Response('hello world!')
 
 app = flask_app.wsgi_app
