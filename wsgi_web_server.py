@@ -96,7 +96,7 @@ def make_server(address, application):
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        sys.exit("no command")
+        sys.exit("no application command")
     app_path = sys.argv[1]
     module, application = app_path.split(":")
     print(application, module)
