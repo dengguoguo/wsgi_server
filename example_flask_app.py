@@ -5,11 +5,23 @@
 # @File : example_flask_app.py
 # @Software: PyCharm
 from flask import Flask
-from flask import Response
+from flask import render_template
+
 flask_app = Flask('flaskapp')
+
 
 @flask_app.route('/hello/')
 def hello_world():
-    return Response('hello world!  dengg')
+    return render_template('test.html', schedule=[{'time':"10'",
+                                                      'competition': '中超',
+                                                      'home_team':'1111',
+                                                      'away_team': '2222',
+                                                      'home_team_score': '1',
+                                                      'away_team_score': '2',
+
+
+
+    }])
+
 
 app = flask_app.wsgi_app
