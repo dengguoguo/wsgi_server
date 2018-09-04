@@ -12,7 +12,7 @@ flask_app = Flask('flaskapp')
 
 @flask_app.route('/hello/')
 def hello_world():
-    return render_template('test.html', schedule=[{'time':"10'",
+    return render_template('flask_test.html', schedule=[{'time':"10'",
                                                       'competition': '中超',
                                                       'home_team':'1111',
                                                       'away_team': '2222',
