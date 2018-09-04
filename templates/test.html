@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="line">
+    {% for info in schedule %}
+    <span class="text_title_s">{{ info['time'] }}</span>
+    <a class="text_title_c">{{ info['competition'] }}</a>
+    <!--<span class="text_title_t">{{ info['time'] }}</span>-->
+    <a class="text_title_ht">{{ info['home_team'] }}</a>
+    <span class="text_title_hsas">{{ info['home_team_score'] }}:{{ info['away_team_score'] }}</span>
+    <a class="text_title_at">{{ info['away_team'] }}</a>
+    <a href="" class="match_detail">详情></a>
+    {% endfor %}
+</div>
+</body>
+</html>
