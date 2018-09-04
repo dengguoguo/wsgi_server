@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>sign_up</title>
+    <style>
+        span {display: inline-block;text-align: left;margin-left: 150px}
+        inputBorder {margin-left: 150px}
+        .buttons {margin-left: 690px;}
+        .styles {margin-left: 30px;color: red;}
+        .outBorder {width: 30%;height: 20%;border: 1px solid red;margin-left: 35%;}
+
+    </style>
+    <script type="text/ecmascript" src="md5.js"></script>
+    <script>
+        function verifyName(a) {
+            console.log(a);
+            var name=document.getElementById('username').value;
+            if (name===''){
+                document.getElementById('one').innerHTML='用户名不能为空';
+            }
+            else if(name.length<6){
+                document.getElementById('one').innerHTML='用户名长度不够';
+            }
+        }
+
+        function verifyPassword() {
+            var password=document.getElementById('password').value;
+            if(password===''){
+                document.getElementById('two').innerHTML='密码不能为空';
+            }
+            else if(password.length<8){
+                document.getElementById('two').innerHTML='密码长度不够';
+            }
+            else {
+                var a=hex_md5(password);
+                console.log(a);
+            }
+        }
+
+        function verifyAgain() {
+            var password=document.getElementById('password').value;
+            var again=document.getElementById('again').value;
+            if (password!==again){
+                document.getElementById('three').innerHTML='密码输入不正确';
+            }
+        }
+
+        function gainFocusOne() {
+            document.getElementById('one').innerHTML='';
+        }
+        function gainFocusTwo() {
+            document.getElementById('two').innerHTML='';
+        }
+        function gainFocusThree() {
+            document.getElementById('three').innerHTML='';
+        }
+
+        function verifyForm() {
+            var name=document.forms['signUp']['username'].value;
+            var password=document.forms['signUp']['password'].value;
+            var again=document.forms['signUp']['again'].value;
+            if (name==''||name.length<6){
+                alert('用户名不符合规范');
+                return false
+            }
+            else if(password==''||password.length<8){
+                alert('密码不符合规范');
+                return false
+            }
+            else if(again!==password){
+                alert('密码不正确');
+                return false
+            }
+        }
+
+        function popUp(value) {
+            var pop = document.getElementById("test");
+            if (value === "none"){
+                pop.style.display = "none"
+            }
+            else if(value === "block"){
+                pop.style.display = "block"
+            }
+        }
+    </script>
+</head>
+<body>
+<form id="test" name="signUp" action="" method="get" onsubmit="return verifyForm()" >
+    <div class="outBorder">
+        <div><button type="button" onclick="popUp('none')" style="float: right">X</button></div>
+
+        <h1 style="text-align: center">注册页面</h1>
+        <div><span>用户名:</span>
+            <input class="inputBorder" id="username" name="username" type="text" onblur="verifyName(this)" onfocus="gainFocusOne()">*必填
+        <p id="one" class="styles"></p>
+        <span>密码:</span>
+            <input id="password" name="password" type="password" onblur="verifyPassword()" onfocus="gainFocusTwo()">*必填
+        <p id="two" class="styles"></p>
+        <span>确认密码:</span>
+            <input id="again" name="again" type="password" onblur="verifyAgain()" onfocus="gainFocusThree()">*必填
+        <p id="three" class="styles"></p>
+        <p style="text-align: center">
+            <input type="radio" name="gender" value="man">男
+            <input type="radio" name="gender" value="woman">女</p>
+        <input class="buttons" type="submit" value="注册">
+        </div>
+    </div>
+</form>
+
+<div><button onclick="popUp('block')" type="button">注册</button></div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+{% extends base.html %}
+{% block title %}homePage{% end %}
+
+{% block head %}
+<link rel="stylesheet" href="../static/css/homePage.css">
+{% end %}
+
+{% block body %}
+<div class="content">
+    <div class="content_title">
+        <a href="">全部</a>
+        <img src="../static/img/basketball.jpg" alt="" class="content_title_b_logo">
+        <a href="">篮球</a>
+        <img src="../static/img/football.jpg" alt="" class="content_title_f_logo">
+        <a href="">足球</a>
+    </div>
+</div>
+<div class="content_text">
+    <span class="text_title">当天比赛</span>
+    <div class="line">
+        <span class="text_title_1">开始时间</span>
+        <span class="text_title_2">赛事</span>
+        <span class="text_title_3">时间</span>
+        <span class="text_title_4">主队</span>
+        <span class="text_title_5">比分</span>
+        <span class="text_title_6">客队</span>
+        <div class="line">
+            {% for info in schedule %}
+            <span class="text_title_s">{{ info['time'] }}</span>
+            <a class="text_title_c">{{ info['competition'] }}</a>
+            <!--<span class="text_title_t">{{ info['time'] }}</span>-->
+            <a class="text_title_ht">{{ info['home_team'] }}</a>
+            <span class="text_title_hsas">{{ info['home_team_score'] }}:{{ info['away_team_score'] }}</span>
+            <a class="text_title_at">{{ info['away_team'] }}</a>
+            <a href="" class="match_detail">详情></a>
+            <div class="line">
+                {% end %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="basketball_integral">
+    <span class="integral_title">NBA积分榜</span>
+    <div class="integral_line"></div>
+    <div class="outBorder">
+        <span>中超</span>
+        <span>英超</span>
+        <span>西甲</span>
+        <span>意甲</span>
+        <span>德甲</span>
+        <span>法甲</span>
+    </div>
+    <div class="box">
+        <span>名次</span>
+        <span>队员</span>
+        <span>胜/负/平</span>
+        <span>积分</span>
+    </div>
+</div>
+{% end %}
